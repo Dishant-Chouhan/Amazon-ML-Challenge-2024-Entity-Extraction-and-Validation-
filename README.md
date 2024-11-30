@@ -55,7 +55,6 @@ The challenge required participants to extract text-based entities from images, 
 
 ---
 
-## How to Use  
 
 ### Prerequisites  
 - Python 3.8+  
@@ -68,32 +67,9 @@ The challenge required participants to extract text-based entities from images, 
   - scikit-learn  
   - tqdm  
 
-Install dependencies using:  
-```bash
-pip install -r requirements.txt
-```
 
-
-## File Structure  
-
-```
-├── dataset/
-│   ├── train/
-│   ├── test/
-├── scripts/
-│   ├── preprocess.py
-│   ├── train.py
-│   ├── predict.py
-├── results/
-│   ├── predictions.csv
-├── README.md
-├── requirements.txt
-```
 
 ---
-
-
-
 ## Future Work  
 
 - Integrating more advanced NLP techniques for improved entity extraction.  
