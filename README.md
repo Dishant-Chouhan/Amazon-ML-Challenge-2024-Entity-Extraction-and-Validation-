@@ -1,75 +1,59 @@
-
 # Amazon ML Challenge 2024 - Entity Extraction and Validation  
 
 ## Overview  
-This repository contains our team's solution to the **Amazon ML Challenge 2024**, where we tackled the task of automating **entity extraction and validation** from images using state-of-the-art AI techniques. The challenge involved processing image data to extract critical entities such as dates, amounts, and measurements with high accuracy and efficiency.  
+This repository contains our team's solution to the **Amazon ML Challenge 2024**, focusing on automating **entity extraction and validation** from images. The project demonstrates the extraction of structured information (e.g., weight, dimensions, voltage) from unstructured image data, leveraging advanced machine learning techniques.
 
 **Final Rank:** **357 out of 75,000+ participants**
 
 ---
 
 ## Problem Statement  
-The challenge required participants to extract text-based entities from images, preprocess the extracted text for standardization, and validate the extracted data against predefined rules or formats. Our solution focuses on leveraging **OCR**, **NLP**, and **deep learning** to handle noisy, low-quality images with challenging text formats.
+The challenge was to extract entity values (e.g., "item weight: 34 grams") from product images, standardize the extracted values, and validate them against predefined rules. This is essential for industries such as e-commerce, healthcare, and content moderation, where accurate metadata directly impacts operations like inventory management, recommendation systems, and quality control.
 
 ---
 
 ## Solution Approach  
 
-### 1. **Text Extraction**  
-- Used **EasyOCR** to extract text from images.  
-- Handled challenges such as low-contrast images, noisy backgrounds, and varied fonts.  
+### 1. **Text Extraction (OCR)**  
+- Implemented **EasyOCR** for robust text extraction from images.  
+- Addressed challenges like varied fonts, noisy backgrounds, and low-quality images.  
 
 ### 2. **Text Preprocessing**  
-- Employed **Pandas** and **Regex** to clean and standardize text data.  
-- Ensured uniformity across datasets for efficient entity extraction and validation.  
+- Used **Pandas** and **Regex** for cleaning, standardizing, and tokenizing text data.  
+- Ensured consistent formatting to align with the output requirements.  
 
-### 3. **Entity Extraction**  
-- Built a custom **Convolutional Neural Network (CNN)** optimized using **Keras Tuner** for hyperparameter tuning.  
-- Batch processing was implemented to handle large datasets, leveraging the power of an **RTX 3050 GPU** for faster training and inference.  
+### 3. **Entity Extraction and Validation**  
+- Designed a custom **Convolutional Neural Network (CNN)** model optimized for image features.  
+- Fine-tuned the model using **Keras Tuner** with metrics such as **F1 Score** to maximize precision and recall.  
 
-### 4. **Hyperparameter Optimization**  
-- Applied **Random Search** to fine-tune hyperparameters like learning rate, number of layers, and filter sizes.  
-- Evaluated models based on the **F1 Score** to balance precision and recall for optimal performance.  
+### 4. **Unit Detection**  
+- Built an **NLP-based parser** to detect allowed units from constants.py.  
+- Implemented rules to validate and convert units into the expected format.  
 
-### 5. **Image Preprocessing**  
-- Enhanced image quality through preprocessing techniques such as:  
-  - **Sharpening**  
-  - **Resizing**  
-  - **Contrast Enhancement**  
-- Improved OCR accuracy on distorted or low-quality images.  
+### 5. **Hyperparameter Optimization**  
+- Employed **Random Search** for efficient hyperparameter tuning.  
+- Focused on batch size, learning rates, and layer configurations.  
 
----
-
-
-
-## Challenges Addressed  
-
-1. **Low-Quality Images:** Addressed through advanced preprocessing techniques.  
-2. **Challenging Fonts and Layouts:** Overcame using robust OCR and NLP pipelines.  
-3. **Large Datasets:** Optimized training and inference with batch processing and GPU acceleration.  
+### 6. **Image Preprocessing**  
+- Applied techniques like sharpening, resizing, and contrast enhancement to improve OCR accuracy.  
+- Batch processed large image datasets using GPU acceleration for efficiency.  
 
 ---
 
+## Dataset  
 
-### Prerequisites  
-- Python 3.8+  
-- NVIDIA GPU (recommended for faster training)  
-- Required libraries:  
-  - TensorFlow  
-  - EasyOCR  
-  - Keras Tuner  
-  - Pandas  
-  - scikit-learn  
-  - tqdm  
-
-
+- **Training Dataset:** Contains product images with labeled entity values (e.g., weight, dimensions).  
+- **Test Dataset:** Contains product images with no labeled values, requiring predictions to be made.  
+- **Output Format:** Predictions must match a specific format, e.g., `12.5 gram`.  
 
 ---
-## Future Work  
 
-- Integrating more advanced NLP techniques for improved entity extraction.  
-- Scaling the model for deployment in real-world applications.  
-- Exploring additional OCR libraries for better multilingual support.  
+## Features  
+
+- **Efficient OCR Integration:** Robust text extraction from diverse and noisy image datasets.  
+- **Entity Standardization:** Automated validation against predefined unit rules and formats.  
+- **Real-World Scalability:** Preprocessing techniques and GPU acceleration allow handling of large datasets.  
+- **Custom CNN Model:** Fine-tuned model for high accuracy on challenging image data.  
 
 ---
 
