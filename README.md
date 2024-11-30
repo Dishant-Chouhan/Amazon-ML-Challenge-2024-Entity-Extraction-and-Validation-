@@ -40,12 +40,7 @@ The challenge required participants to extract text-based entities from images, 
 
 ---
 
-## Results  
 
-- **Rank Achieved:** **357th out of 75,000+ participants.**  
-- Our model demonstrated high accuracy in extracting and validating entities, with a strong balance between precision and recall.
-
----
 
 ## Challenges Addressed  
 
